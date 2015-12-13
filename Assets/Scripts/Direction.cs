@@ -4,6 +4,7 @@ using System.Collections;
 public class Direction : MonoBehaviour {
 
 	public string direction;
+    public string input_button;
 
 	private Animator anim;
 	// Use this for initialization

@@ -10,6 +10,8 @@ public class PlayerController : MonoBehaviour {
 
 
 	public Vector2 speed;
+
+    public bool canUseWeapon = true;
 	// Use this for initialization
 
 	private Rigidbody2D rb2d;

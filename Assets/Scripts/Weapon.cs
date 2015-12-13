@@ -30,21 +30,22 @@ public class Weapon : MonoBehaviour {
 		spawnDirection = controller.facingDirection;
 		controller.canMove = !usingWeapon;
 
-		if(usingWeapon == false)
+		if(usingWeapon == false && controller.canUseWeapon)
 		{
 
 		
 			if((Input.GetButtonDown(InputButton)))
 			{
 				usingWeapon = true;
-
+                controller.canUseWeapon = false;
 
 				GameObject weaponSwing = (GameObject)Instantiate(weaponPrefab.gameObject, rightDirection.transform.position, Quaternion.identity);
 				weaponSwing.transform.parent = this.gameObject.transform;
 
 				weaponSwing.GetComponent<Direction>().direction = spawnDirection;
+                weaponSwing.GetComponent<Direction>().input_button = InputButton;
 
-				if(spawnDirection == "RIGHT")
+                if (spawnDirection == "RIGHT")
 				{
 					weaponSwing.transform.position = rightDirection.transform.position;
 
@@ -71,6 +72,7 @@ public class Weapon : MonoBehaviour {
 			if(weaponTimer >= usingWeaponTime)
 			{
 				usingWeapon = false;
+                controller.canUseWeapon = true;
 				weaponTimer = 0.0f;
 			}
 			else
