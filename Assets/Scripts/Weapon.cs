@@ -65,6 +65,10 @@ public class Weapon : MonoBehaviour {
 
 			}
 
+
+
+
+
 		}
 
 		if(usingWeapon)

@@ -16,21 +16,27 @@ public class Direction : MonoBehaviour {
 	// Update is called once per frame
 	void Update () 
 	{
+        direction = transform.parent.GetComponent<PlayerController>().facingDirection;
+
 		if(direction == "UP")
 		{
-			anim.SetInteger("direction", 0); 
-		}
+			anim.SetInteger("direction", 0);
+            transform.position = transform.parent.GetComponent<Weapon>().upDirection.position;
+        }
 		else if(direction == "RIGHT")
 		{
-			anim.SetInteger("direction", 1); 
-		}
+			anim.SetInteger("direction", 1);
+            transform.position = transform.parent.GetComponent<Weapon>().rightDirection.position;
+        }
 		else if(direction == "DOWN")
 		{
-			anim.SetInteger("direction", 2); 
-		}
+			anim.SetInteger("direction", 2);
+            transform.position = transform.parent.GetComponent<Weapon>().downDirection.position;
+        }
 		else if(direction == "LEFT")
 		{
-			anim.SetInteger("direction", 3); 
-		}
+			anim.SetInteger("direction", 3);
+            transform.position = transform.parent.GetComponent<Weapon>().leftDirection.position;
+        }
 	}
 }
