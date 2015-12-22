@@ -5,6 +5,8 @@ public class Direction : MonoBehaviour {
 
 	public string direction;
     public string input_button;
+    public bool stopsPlayerMovement = false;
+    public float coolDownTime;
 
 	private Animator anim;
 	// Use this for initialization

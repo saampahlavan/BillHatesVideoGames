@@ -13,22 +13,25 @@ public class Weapon : MonoBehaviour {
 	public Transform upDirection;
 	public Transform downDirection;
 
-	public float usingWeaponTime;
-	public bool usingWeapon = false;
+    public bool usingWeapon = false;
+    private float usingWeaponTime;
 	private float weaponTimer = 0.0f;
 
 	private PlayerController controller;
+    private bool weaponStopsPlayer;
 
 	void Start () 
 	{
 		controller = this.gameObject.GetComponent<PlayerController>();
-	}
+        weaponStopsPlayer = weaponPrefab.GetComponent<Direction>().stopsPlayerMovement;
+        usingWeaponTime = weaponPrefab.GetComponent<Direction>().coolDownTime;
+    }
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		spawnDirection = controller.facingDirection;
-		controller.canMove = !usingWeapon;
+		
 
 		if(usingWeapon == false && controller.canUseWeapon)
 		{
@@ -71,6 +74,7 @@ public class Weapon : MonoBehaviour {
 
 		}
 
+       
 		if(usingWeapon)
 		{
 			if(weaponTimer >= usingWeaponTime)
@@ -78,13 +82,19 @@ public class Weapon : MonoBehaviour {
 				usingWeapon = false;
                 controller.canUseWeapon = true;
 				weaponTimer = 0.0f;
+                if (weaponStopsPlayer)
+                    controller.canMove = true;
 			}
 			else
 			{
 				weaponTimer += Time.deltaTime;
 				usingWeapon = true;
-			}
+                if (weaponStopsPlayer)
+                    controller.canMove = false;
+            }
 		}
 
-	}
+        //controller.canMove = !usingWeapon;
+
+    }
 }
