@@ -52,17 +52,22 @@ public class PlayerController : MonoBehaviour {
 			speed.x = 1.0f * Mathf.Sign(horizontal);
 			isRunning = true;
 
-			if(speed.x > 0.0)
-			{
-				facingDirection = "RIGHT";
-			}
-			else if(speed.x < 0.0)
-			{
-				facingDirection =  "LEFT";
-			}
+            if(canMove)
+            {
+
+           
+			    if(speed.x > 0.0)
+			    {
+				    facingDirection = "RIGHT";
+			    }
+			    else if(speed.x < 0.0)
+			    {
+				    facingDirection =  "LEFT";
+			    }
+            }
 
 
-		}
+        }
 
 
 		if(horizontal < movement_threshold2 && horizontal > -movement_threshold2)
@@ -77,14 +82,19 @@ public class PlayerController : MonoBehaviour {
 			speed.y = 1.0f * Mathf.Sign(vertical);
 			isRunning = true;
 
-			if(speed.y > 0)
-			{
-				facingDirection = "UP";
-			}
-			else if(speed.y < 0)
-			{
-				facingDirection = "DOWN";
-			}
+            if (canMove)
+            {
+
+
+                if (speed.y > 0)
+                {
+                    facingDirection = "UP";
+                }
+                else if (speed.y < 0)
+                {
+                    facingDirection = "DOWN";
+                }
+            }
 
 		}
 
