@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour {
 
 	public float movement_threshold;
 	public float movement_threshold2;
-
+	public bool isTalking = false;
 
 	public Vector2 speed;
 
@@ -160,5 +160,13 @@ public class PlayerController : MonoBehaviour {
 			//anim.SetInteger("Direction", 4);
 		}
 
+
+
+		// check talking
+
+		if(isTalking)
+		{
+			canMove = false;
+		}
 	}
 }

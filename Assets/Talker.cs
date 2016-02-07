@@ -13,6 +13,8 @@ public class Talker : MonoBehaviour {
 	private string _windowCurrentText = string.Empty;
 	private int _textFrames = int.MaxValue;
 
+	private PlayerController player_controls;
+
 	public Canvas dialogueBox;
 
 	// Use this for initialization
@@ -30,12 +32,14 @@ public class Talker : MonoBehaviour {
 		_text = data.text;
 		_windowCurrentText = string.Empty;
 		_windowTargetText = data.text;
+
 	}
 
 	void onStarted ()
 	{
 		_showing = true;
 		isTalking = true;
+
 	}
 
 	void onEnded()
@@ -43,7 +47,8 @@ public class Talker : MonoBehaviour {
 		_showing = false;
 		isTalking = false;
 		dialogueBox.GetComponent<CanvasGroup>().alpha = 0;
-
+		player_controls.isTalking = false;
+		player_controls.canMove = true;
 	}
 	
 	// Update is called once per frame
@@ -59,7 +64,7 @@ public class Talker : MonoBehaviour {
 
 
 
-		if(Input.GetButtonDown("Fire1"))
+		if(Input.GetButtonDown("Talk"))
 		{
 			if (_windowCurrentText == _windowTargetText)
 			{
@@ -98,24 +103,57 @@ public class Talker : MonoBehaviour {
 
 	}
 
-
+	// ACTIVATEING A CONVERSATION THROUGH TRIGGER COLLISIONS
 
 	void OnTriggerStay2D(Collider2D thing)
 	{
-		if(thing.tag == "Player")
+		if(thing.tag == "Talk" || thing.tag == "Bill")
 		{
 			
 
-			if(Input.GetButtonDown("Fire1"))
+			if(Input.GetButtonDown("Talk"))
 			{
 				print("TALKING");
 				dialogueBox.GetComponent<CanvasGroup>().alpha = 1;
 
 				if(isTalking == false)
-				Dialoguer.StartDialogue(0);
+				{
+					Dialoguer.StartDialogue(0);
+					player_controls = thing.transform.parent.GetComponent<PlayerController>();
+					player_controls.isTalking = true;
+				}
+
 				_showing = true;
 			}
 		}
-		
+
+		print("TRIGGER STAY NAME: " + thing);
 	}
+
+	void OnTriggerEnter2D(Collider2D thing)
+	{
+		if(thing.tag == "Talk" || thing.tag == "Bill")
+		{
+
+
+			if(Input.GetButtonDown("Talk"))
+			{
+				print("TALKING");
+				dialogueBox.GetComponent<CanvasGroup>().alpha = 1;
+
+
+				if(isTalking == false)
+				{
+					Dialoguer.StartDialogue(0);
+					player_controls = thing.transform.parent.GetComponent<PlayerController>();
+					player_controls.isTalking = true;
+				}
+
+				_showing = true;
+			}
+		}
+
+	}
+
+
 }
