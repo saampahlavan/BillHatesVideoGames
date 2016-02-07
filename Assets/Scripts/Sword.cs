@@ -35,6 +35,6 @@ public class Sword : MonoBehaviour {
 
 		}
 
-		print ("ENTERING : " + other.gameObject);
+		//print ("ENTERING : " + other.gameObject);
 	}
 }

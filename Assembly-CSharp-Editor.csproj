@@ -45,6 +45,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Dialoguer\DialogueEditor\Scripts\Editor\DialogueEditorAssetModificationProcessor.cs" />
+     <Compile Include="Assets\Dialoguer\DialogueEditor\Scripts\Editor\DialogueEditorHelp.cs" />
+     <Compile Include="Assets\Dialoguer\DialogueEditor\Scripts\Editor\DialogueEditorMasterObjectWrapperEditor.cs" />
+     <Compile Include="Assets\Dialoguer\DialogueEditor\Scripts\Editor\DialogueEditorWindow.cs" />
+     <Compile Include="Assets\Dialoguer\DialogueEditor\Scripts\Editor\DialoguerEnumGenerator.cs" />
+     <Compile Include="Assets\Dialoguer\DialogueEditor\Scripts\Editor\GUI\DialogueEditorGUI.cs" />
+     <Compile Include="Assets\Dialoguer\DialogueEditor\Scripts\Editor\Managers\DialogueEditorDataManager.cs" />
+     <Compile Include="Assets\Dialoguer\DialogueEditor\Scripts\Editor\ThemeEditorWindow.cs" />
+     <Compile Include="Assets\Dialoguer\DialogueEditor\Scripts\Editor\VariableEditorWindow.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Editor\Camera\tk2dCameraAnchorEditor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Editor\Camera\tk2dCameraEditor.cs" />
      <Compile Include="Assets\TK2DROOT\tk2d\Editor\Fonts\tk2dFontBuilder.cs" />
@@ -150,6 +159,7 @@
      <None Include="Assets\TK2DROOT\tk2dUI_demo\Assets\Dark\Fonts\Nunito24.fnt" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\resources\BlendVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\LitCutoutVertexColor.shader" />
+     <None Include="Assets\Dialoguer_README.txt" />
      <None Include="Assets\TK2DROOT\tk2d\Editor\EditorUtility.shader" />
      <None Include="Assets\TK2DROOT\tk2d\Shaders\CutoutVertexColor.shader" />
      <None Include="Assets\TK2DROOT\tk2dUI_demo\Assets\Font\OldSansBlack\OldSansBlack.fnt" />
