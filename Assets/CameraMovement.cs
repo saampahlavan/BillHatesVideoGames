@@ -49,7 +49,7 @@ public class CameraMovement : MonoBehaviour {
 		
 			if(playerPos.x >= cam.pixelWidth)
 			{
-				print("RIGHT");
+				//print("RIGHT");
 				camera_direction = "RIGHT";
 				new_cam_pos.x = cam.transform.position.x + cameraWidth;
 				StartCoroutine("MoveCamera");
@@ -57,7 +57,7 @@ public class CameraMovement : MonoBehaviour {
 
 			if(playerPos.x <= 0.0f)
 			{
-				print("LEFT");
+				//print("LEFT");
 
 				camera_direction = "LEFT";
 				new_cam_pos.x = cam.transform.position.x - cameraWidth;
@@ -67,7 +67,7 @@ public class CameraMovement : MonoBehaviour {
 
 			if(playerPos.y >= cam.pixelHeight)
 			{
-				print("UP");
+				//print("UP");
 
 				camera_direction = "UP";
 				new_cam_pos.y = cam.transform.position.y + cameraHeight;
@@ -76,7 +76,7 @@ public class CameraMovement : MonoBehaviour {
 
 			if(playerPos.y <= 0.0f)
 			{
-				print("DOWN");
+				//print("DOWN");
 
 				camera_direction = "DOWN";
 				new_cam_pos.y = cam.transform.position.y - cameraHeight;
@@ -115,7 +115,7 @@ public class CameraMovement : MonoBehaviour {
 
 		foreach(var thing in objectManager.GetComponentsInChildren<CameraCheck>(true)) 
 		{
-			print(thing.gameObject.name);
+		//	print(thing.gameObject.name);
 			Vector3 objectPos = Camera.main.WorldToScreenPoint(thing.gameObject.transform.position);
 
 			if(objectPos.x >= 0.0f && objectPos.x <= Camera.main.pixelWidth && objectPos.y >= 0.0f && objectPos.y <= Camera.main.pixelHeight)

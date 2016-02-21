@@ -113,7 +113,7 @@ public class Talker : MonoBehaviour {
 
 			if(Input.GetButtonDown("Talk"))
 			{
-				print("TALKING");
+				//print("TALKING");
 				dialogueBox.GetComponent<CanvasGroup>().alpha = 1;
 
 				if(isTalking == false)
@@ -127,7 +127,7 @@ public class Talker : MonoBehaviour {
 			}
 		}
 
-		print("TRIGGER STAY NAME: " + thing);
+		//print("TRIGGER STAY NAME: " + thing);
 	}
 
 	void OnTriggerEnter2D(Collider2D thing)
@@ -138,7 +138,7 @@ public class Talker : MonoBehaviour {
 
 			if(Input.GetButtonDown("Talk"))
 			{
-				print("TALKING");
+				//print("TALKING");
 				dialogueBox.GetComponent<CanvasGroup>().alpha = 1;
 
 
